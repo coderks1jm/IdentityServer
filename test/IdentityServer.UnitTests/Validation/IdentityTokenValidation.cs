@@ -83,5 +83,21 @@ namespace UnitTests.Validation
             result.IsError.Should().BeTrue();
             result.Error.Should().Be(OidcConstants.ProtectedResourceErrors.InvalidToken);
         }
+
+        [Fact]
+        [Trait("Category", Category)]
+        public async Task can_add_aud_to_token()
+        {
+            var creator = Factory.CreateDefaultTokenCreator();
+            var id_token = TokenFactory.CreateIdentityToken("roclient", "sub");
+            id_token.Claims.Add(new System.Security.Claims.Claim("aud", "some_aud"));
+            var jwt = await creator.CreateTokenAsync(id_token);
+
+            //var validator = Factory.CreateTokenValidator();
+
+            //var result = await validator.ValidateIdentityTokenAsync(jwt, "roclient");
+            //result.IsError.Should().BeTrue();
+            //result.Error.Should().Be(OidcConstants.ProtectedResourceErrors.InvalidToken);
+        }
     }
 }
