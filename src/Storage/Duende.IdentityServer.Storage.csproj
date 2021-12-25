@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>net5.0</TargetFrameworks>
 
     <PackageId>Duende.IdentityServer.Storage</PackageId>
     <Description>Storage interfaces and models for Duende IdentityServer</Description>
@@ -11,7 +11,7 @@
   <ItemGroup>
     <PackageReference Include="IdentityModel" />
     <PackageReference Include="System.Text.Json" />
-    <PackageReference Include="Microsoft.AspNetCore.DataProtection.Abstractions" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.Abstractions" Version="$(FrameworkVersion)" />
   </ItemGroup>
 
 </Project>
